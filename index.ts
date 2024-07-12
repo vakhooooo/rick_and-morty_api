@@ -1,5 +1,5 @@
 import axios from "axios";
-import conn from "./src/db";
+import conn from "./src/db/index";
 
 interface Character {
   id: number;
@@ -114,8 +114,6 @@ async function main(): Promise<void> {
 
     await insertCharacters(characters);
     console.log("Characters inserted successfully.");
-
-    console.log(await conn.query(`SELECT * FROM vakhos_table`));
   } catch (err) {
     console.error(err);
   } finally {
